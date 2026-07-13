@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Game result</h1>
+    <h2>You chose</h2>
+    <h3>{{ user_choice }}</h3>
+    <h2>Computer chose</h2>
+    <h3>{{ computer_choice }}</h3>
+    <h1>{{ winner }}</h1>
+
+    <div class="score">
+        <h3>Score Board</h3>
+        <p>Wins: {{ session.get('wins', 0) }}</p>
+        <p>Losses: {{ session.get('losses', 0) }}</p>
+        <p>Draws: {{ session.get('draws', 0) }}</p>
+    </div>
+    <a href="{{ url_for('home') }}">Play Again</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Rock Paper Scissors</h1>
+    <h2>Choose your move</h2>
+    <form action="/play" method="POST">
+        <button type="submit" name="choice" value="rock">Rock</button>
+        <button type="submit" name="choice" value="paper">Paper</button>
+        <button type="submit" name="choice" value="scissors">Scissors</button>
+    </form>
+
+    <div class="score">
+        <h3>Score Board</h3>
+        <p>Wins: {{ session.get('wins', 0) }}</p>
+        <p>Losses: {{ session.get('losses', 0) }}</p>
+        <p>Draws: {{ session.get('draws', 0) }}</p>
+    </div>
+
+    <a href="/reset">Reset Score</a>
+</div>
+</body>
+</html>
